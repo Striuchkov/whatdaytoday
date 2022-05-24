@@ -48,7 +48,7 @@ collections:
     # editor:
     #   preview: true
     fields:
-      - { label: 'Created Date', name: 'createdAt', widget: 'datetime', date_format: "YYYY-MM-DD", time_format: false }
+      - { label: 'Created Date', name: 'createdAt', widget: 'datetime', date_format: 'YYYY-MM-DD', time_format: false }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
@@ -80,3 +80,28 @@ collections:
           summary: '{{fields.image}}',
           field: { label: 'Image', name: 'image', widget: 'image' },
         }
+  - name: 'profile'
+    label: 'Profile'
+    widget: 'object'
+    folder: 'content/profiles'
+    create: true
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'profiles/{{slug}}'
+    summary: '{{fields.name}}: {{fields.birthdate}}'
+    fields:
+      - { label: 'Public', name: 'public', widget: 'boolean', default: true }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - label: 'Birthdate'
+        name: 'birthdate'
+        widget: 'date'
+        default: ''
+        format: 'MM/DD/YYYY'
+      - label: 'Address'
+        name: 'address'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - { label: 'Street Address', name: 'street', widget: 'string' }
+          - { label: 'City', name: 'city', widget: 'string' }
+          - { label: 'Postal Code', name: 'post-code', widget: 'string' }
