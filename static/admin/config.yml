@@ -80,14 +80,14 @@ collections:
           summary: '{{fields.image}}',
           field: { label: 'Image', name: 'image', widget: 'image' },
         }
-  - name: 'profile'
-    label: 'Profile'
+  - name: 'holidays'
+    label: 'Holiday'
     widget: 'object'
-    folder: 'content/profiles'
+    folder: 'content/holidays'
     create: true
     format: 'frontmatter'
-    slug: '{{slug}}'
-    preview_path: 'profiles/{{slug}}'
+    slug: '{{slug}}-holiday'
+    preview_path: '/{{slug}}'
     summary: '{{fields.name}}: {{fields.birthdate}}'
     fields:
       - { label: 'Public', name: 'public', widget: 'boolean', default: true }

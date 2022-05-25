@@ -33,9 +33,9 @@ export default {
   async asyncData({ $content, params, error }) {
     let post;
     try {
-      post = await $content("projects", params.project).fetch();
+      post = await $content("holidays", params.holiday).fetch();
     } catch (e) {
-      error({ message: "Project not found" });
+      error({ message: "Holidays not found" });
     }
     return { post };
   },
