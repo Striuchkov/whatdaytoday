@@ -1,4 +1,4 @@
-site_url: https://ntn-boilerplate.netlify.app/
+site_url: https://whatday.today
 logo_url: https://ntn-boilerplate.netlify.app/icon.png
 
 publish_mode: editorial_workflow
@@ -52,21 +52,21 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
-  - name: 'projects'
-    label: 'Projects'
-    label_singular: 'Project'
-    folder: 'content/projects'
+  - name: 'holidays'
+    label: 'Holidays'
+    label_singular: 'Holiday'
+    folder: 'content/holidays'
     create: true
     format: 'frontmatter'
     slug: '{{slug}}'
-    preview_path: 'projects/{{slug}}'
+    preview_path: 'holidays/{{slug}}'
     fields:
       - {
           label: 'Project Category',
           name: 'category',
           widget: 'select',
-          default: 'animals',
-          options: [{ label: 'Animals', value: 'animals' }, { label: 'Food', value: 'food' }],
+          default: 'national',
+          options: [{ label: 'National', value: 'national' }, { label: 'World', value: 'world' }],
         }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
@@ -80,28 +80,3 @@ collections:
           summary: '{{fields.image}}',
           field: { label: 'Image', name: 'image', widget: 'image' },
         }
-  - name: 'holidays'
-    label: 'Holiday'
-    widget: 'object'
-    folder: 'content/holidays'
-    create: true
-    format: 'frontmatter'
-    slug: '{{slug}}-holiday'
-    preview_path: '/{{slug}}'
-    summary: '{{fields.name}}: {{fields.birthdate}}'
-    fields:
-      - { label: 'Public', name: 'public', widget: 'boolean', default: true }
-      - { label: 'Name', name: 'name', widget: 'string' }
-      - label: 'Birthdate'
-        name: 'birthdate'
-        widget: 'date'
-        default: ''
-        format: 'MM/DD/YYYY'
-      - label: 'Address'
-        name: 'address'
-        widget: 'object'
-        collapsed: true
-        fields:
-          - { label: 'Street Address', name: 'street', widget: 'string' }
-          - { label: 'City', name: 'city', widget: 'string' }
-          - { label: 'Postal Code', name: 'post-code', widget: 'string' }
